@@ -1,0 +1,53 @@
+/*! CSS Minifier - CSS Version 0.0.1 Copyright 2021, Stanley Owen stanleyowen.github.io */
+body { background: none; }
+body.dark .main,
+body.dark button { color: #FFF; }
+body.dark textarea { background-color: #333; color: #FFF; }
+.main {
+    padding-top: 100px;
+    color: #1a73e8;
+}
+.input__container { display: flex; }
+.input {
+    display: flex;
+    flex-direction: column;
+    flex: 0.5;
+    margin: 10px;
+}
+.btn { width: auto; }
+.input__css, .output__css {
+    padding: 10px;
+    font-size: 15px;
+    transition: all .4s;
+    height: 300px;
+    resize: none;
+    border-radius: 10px;
+    background-color: #f7f7f7;
+}
+.input__css:focus, .output__css:focus {
+    outline: none;
+    border: 1px solid #1a73e8;
+    box-shadow: 0 0 10px #1a73e8;
+}
+.btn__container {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+.btn {
+    padding: 10px 15px;
+    text-align: center;
+    margin-top: 20px;
+    width: 50%;
+    border-radius: 10px;
+    border: solid #1a73e8;
+    outline: none;
+    font-size: 15px;
+    background: transparent;
+    transition: all .4s;
+}
+.btn:hover { background-color: #1a73e8; color: #FFF; }
+@media only screen and (max-width: 768px){
+    .input__container  {
+        display: block;
+    }
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>CSS Minifier</title>
+		<link rel="stylesheet" href="https://stanleyowen.github.io/css/style.min.css">
+		<link rel="stylesheet" href="css/style.min.css">
+	</head>
+	<body>
+		<div class="navbar">
+			<a class="navbar__logo" href="/">CSS Minifier</a>
+			<div class="navbar__menu" id="navbar__menu">
+				<a class="animation__underline" href="#home">Home</a>
+			</div>
+			<a href="javascript:void(0);" class="toggleNavbar" onclick="toggleNavbar()"><i class="fa fa-bars"></i></a>
+		</div>
+
+		<div class="main" id="home">
+			<h1>CSS Minifier</h1>
+			<div class="input__container">
+				<div class="input">
+					<textarea class="input__css" id="input__css"></textarea>
+					<div class="btn__container">
+						<button class="btn" onclick="minifyData()">Minify</button>
+						<button class="btn" onclick="resetData()">Reset</button>
+					</div>
+				</div>
+				<div class="input">
+					<textarea class="output__css" id="output__css" disabled></textarea>
+					<div class="btn__container">
+						<button class="btn" onclick="copyData()">Copy to Clipboard</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<a id="scrollTop" href="#home" class="btn__scrollTop"><i class="fas fa-angle-double-up" style="font-size: 2em;"></i></a>
+		<button class="btn__changeMode" aria-label="Change Mode"><i class="fas fa-adjust" style="font-size: 2em;"></i></button>
+
+		<script type="text/javascript" src="https://stanleyowen.github.io/js/jquery.min.js"></script>
+		<script type="text/javascript" src="https://stanleyowen.github.io/js/main.min.js"></script>
+		<script type="text/javascript" src="https://stanleyowen.github.io/js/fa.min.js"></script>
+		<script type="text/javascript">
+			function minifyData() {
+				var inputData = document.getElementById('input__css');
+				var outputData = document.getElementById('output__css');
+				var minify = inputData.value.replace(/\n/g, '').replace(/\/\*.*?\*\//g, '').replace(/;}/g, '}').replace(/\s/g, '');
+				outputData.value = minify;
+				if(outputData.hasAttribute('disabled')){outputData.removeAttribute('disabled');}
+				outputData.select();
+			}
+			function resetData() { document.getElementById('input__css').value = ''; }
+			function copyData() {
+				var outputData = document.getElementById('output__css');
+				outputData.select();
+				document.execCommand('copy');
+			}
+		</script>
+	</body>
+</html>
